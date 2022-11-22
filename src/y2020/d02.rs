@@ -19,7 +19,7 @@ impl Policy {
     }
 
     fn valid(&self) -> bool {
-        let n = self.password.chars().filter(|&a| a == self.letter).count();
+        let n = self.password.matches(self.letter).count();
         n >= self.from && n <= self.to
     }
 
