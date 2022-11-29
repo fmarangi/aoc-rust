@@ -16,11 +16,11 @@ fn between(x: &str, from: usize, to: usize) -> bool {
 }
 
 fn all_data(pass: &Passport) -> bool {
-    pass.iter().filter(|&(k, _)| k != "cid").count() == 7
+    pass.iter().filter(|(k, _)| k != "cid").count() == 7
 }
 
 fn valid(pass: &Passport) -> bool {
-    pass.into_iter()
+    pass.iter()
         .find(|(k, v)| !match k.as_str() {
             "byr" => between(v, 1920, 2002),
             "iyr" => between(v, 2010, 2020),
